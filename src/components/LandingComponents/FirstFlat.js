@@ -1,36 +1,59 @@
 import { Box, makeStyles } from "@material-ui/core"
 import FirstFlatImage from '../../assets/firstflatImage.png'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
-        display: 'flex',
-        justifyContent: 'center'
+        overflow: 'hidden',
+        paddingLeft: '10%',
+        paddingRight: '2em',
+        [theme.breakpoints.up('md')]: {
+            height: '600px',
+            display: 'flex',
+            paddingLeft: '12%',
+            paddingRight: '8em',
+        }
     },
     
     box1: {
-        padding: '8em 1em',
-        paddingLeft: '174px',
+        paddingTop: '2em',
+        [theme.breakpoints.up('md')]: {
+            paddingTop: '8em',
+        }
     },
 
     box2: {
         paddingTop: '2em',
     },
     hugeText: {
-        fontWeight: 400,
-        fontSize: '48px',
-        lineHeight: '60px',
-        width: '8.634em',
-        letterSpacing: '-0.02em'
+        fontWeight: 700,
+        fontSize: '32px',
+        lineHeight: '40px',
+        letterSpacing: '-0.02em',
+        width: '8em',
+        [theme.breakpoints.up('md')]: {
+            fontSize: '48px',
+            lineHeight: '60px',
+            width: '10em',
+        }
     },
     smallText: {
         marginTop: '22px',
-        width: '22em',
-        lineHeight: '1.5em',
+        width: 'unset',
+        fontSize: '18px',
+        lineHeight: '31px',
+        [theme.breakpoints.up('md')]: {
+            width: '26em',
+        }
     },
     img: {
-        marginLeft: '-4em',
+        width: '180%',
+        marginLeft: '-50%',
+        [theme.breakpoints.up('md')]: {
+            marginLeft: '-1em',
+            width: 'unset',
+        }
     }
-})
+}))
 
 const FirstFlat = () => {
     const classes = useStyles()
@@ -39,7 +62,7 @@ const FirstFlat = () => {
         <Box className={classes.root}>
             <Box className = {classes.box1}>
                 <Box className={classes.hugeText}>
-                    Amazing Experiences from Our Wonderful Customers
+                    Amazing <br /> Experiences from Our Wonderful Customers
                 </Box>
                 <Box className={classes.smallText}>
                     Here is what customers and vendors are saying about us, you can share your stories with us too.

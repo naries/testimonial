@@ -2,14 +2,24 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, List, ListItem } from "@material-ui/core"
 import Logo from '../assets/logo.svg'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme =>({
     root: {
         background: 'white',
         border: 0,
-        display: 'flex',
-        height: '48px',
-        padding: '1em 10em',
         justifyContent: 'space-between',
+        fontFamily: 'Roboto',
+        padding: '2em',
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            height: '48px',
+            padding: '1em 10em',
+        },
+        '& nav': {
+            display: 'none',
+            [theme.breakpoints.up('md')]: {
+                display: 'block'
+            }
+        }
     },
     navItem: {
         display: 'initial',
@@ -21,7 +31,7 @@ const useStyles = makeStyles({
         paddingLeft: '1em',
         paddingRight: '1em'
     }
-})
+}))
 
 const TopBar = () => {
     const classes = useStyles();

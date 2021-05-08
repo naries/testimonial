@@ -1,13 +1,19 @@
 import React from 'react'
 import { Box, Chip, Grid, makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
-        padding: '4em 8em',
+        padding: '4em 2em',
+        [theme.breakpoints.up('md')]: {
+          padding: '4em 8em',
+        }
     },
     gridItem: {
-      padding: '1em 2em',
+      padding: '1em',
+      [theme.breakpoints.up('md')]: {
+        padding: '1em 2em',
+      }
     },
     content: {
       fontSize: '16px',
@@ -19,7 +25,8 @@ const useStyles = makeStyles({
       letterSpacing: '0.02em',
       color: '#474747',
       fontSize: '24px',
-      lineHeight: '29px'
+      lineHeight: '29px',
+      marginTop: '1em'
     },
     flexBox: {
       display: 'flex',
@@ -51,7 +58,7 @@ const useStyles = makeStyles({
       background: '#F0FFEE',
       textTransform: 'uppercase'
     }
-})
+}))
 
 const Testimonies = ({ data }) => {
     const classes = useStyles();
@@ -59,7 +66,7 @@ const Testimonies = ({ data }) => {
     function FormRow({ data }) {
         return (
           <React.Fragment>
-           <Grid item xs={4}>
+           <Grid item md={4}>
              <div className = {classes.gridItem}>
                 <div>
                   <img src={data.picture} />

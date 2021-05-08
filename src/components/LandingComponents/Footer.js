@@ -1,19 +1,36 @@
 import { Box, Button, makeStyles, Grid } from "@material-ui/core"
 import Phone from '../../assets/phone.png'
+import FB from '../../assets/sm/fb.svg'
+import IG from '../../assets/sm/ig.svg'
+import IN from '../../assets/sm/in.svg'
+import TW from '../../assets/sm/tw.svg'
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles(theme => ({
     root: {
         background: '#25201D',
         color: '#fff',
 
         
         '& .m-footer': {
-            padding: '4em 8em',
-            display: 'flex',
+            padding: '1em',
+            display: 'block',
+            [theme.breakpoints.up('md')]: {
+                padding: '4em 8em',
+                display: 'flex',
+                flexDirection: 'row',
+            },
 
             '& .section': {
                 padding: '0 1em',
-                width: '11em'
+                width: '40%',
+                display: 'inline-block',
+                verticalAlign: 'top',
+                [theme.breakpoints.up('md')]: {
+                    verticalAlign: 'unset',
+                    width: '11em',
+                    display: 'block',
+                }
             },
 
             '& .topic, .child': {
@@ -29,30 +46,58 @@ const useStyles = makeStyles({
             '& .child': {
                 fontSize: '14px',
                 lineHeight: '16px',
-            }
+
+                '& img': {
+                    marginRight: '4px',
+                }
+            },
+
         },
     },
     flex: {
         display: 'flex',
+        flexDirection: 'column-reverse',
+        [theme.breakpoints.up('md')]: {
+            flexDirection: 'row'
+        },
         '& img': {
-            marginTop: '-3em'
+            marginTop: '1em',
+            marginLeft: '6%',
+            width: '100%',
+            [theme.breakpoints.up('md')]: {
+                marginTop: '-3em',
+                width: 'unset',
+                marginLeft: 'unset',
+            }
         },
         '& .picture-holder': {
             textAlign: 'center',
-            flex: 1.5
+            overflow: 'hidden',
+            [theme.breakpoints.up('md')]: {
+                flex: 1.5,
+                overflow: 'unset',
+            }
         },
         '& .main': {
             flex: 1,
-            paddingTop: '6em',
+            padding: '2em',
+            paddingTop: '2em',
+            [theme.breakpoints.up('md')]: {
+                padding: 'initial',
+                paddingTop: '6em',
+            },
 
             '& .main-text': {
                 fontSize: '40px',
             },
 
             '& .small-text': {
-                width: '24em',
                 lineHeight: '20px',
-                margin: '1em 0'
+                margin: '1em 0',
+                width: 'unset',
+                [theme.breakpoints.up('md')]: {
+                    width: '24em',
+                },
             },
 
             '& input': {
@@ -60,7 +105,10 @@ const useStyles = makeStyles({
                 border: 'none',
                 outline: 'none',
                 color: 'white',
-                marginLeft: '1em',
+                marginLeft: 'unset',
+                [theme.breakpoints.up('md')]: {
+                    marginLeft: '1em',
+                },
             },
 
             '& .newsletter': {
@@ -75,7 +123,7 @@ const useStyles = makeStyles({
             }
         }
     }
-})
+}))
 
 const Footer = () => {
     const classes = useStyles()
@@ -142,6 +190,12 @@ const Footer = () => {
             </div>
             <div className="section">
                 <div className="topic">Join our Community</div>
+                <div className="child">
+                    <img src={FB} alt="Facebook" />
+                    <img src={IG} alt="Instagram" />
+                    <img src={IN} alt="LinkedIn" />
+                    <img src={TW} alt="Twitter" />
+                </div>
                 <div className="child">Email newsletter</div>
             </div>
         </Box>
